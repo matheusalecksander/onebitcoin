@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   mainContainer: {
     width: "95%",
     height: "auto",
-    backgroundColor: "#c1c1c1",
     marginLeft: "3%",
     marginBottom: 15,
     borderRadius: 10,
@@ -14,19 +13,23 @@ const styles = StyleSheet.create({
   },
   leftContent: {
     width: "50%",
-    alignItems: "center"
-
+    alignItems: "center",
+    borderRightWidth: 1,
+    borderRightColor: "#f50d41",
+    padding: 7
   },
   rightContent: {
     width: "50%",
-    alignItems: "center"
-
+    alignItems: "center",
+    borderLeftWidth: 1,
+    borderLeftColor: "#f50d41",
+    padding: 7
   },
   boxLogo: {
-    width: "80%",
+    width: "90%",
     justifyContent: "space-between",
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   bitcoinLogo: {
     width: 24,
@@ -34,12 +37,13 @@ const styles = StyleSheet.create({
   },
   dayQuotation: {
     fontWeight: "bold",
-    color: "#f50d41"
+    color: "#f50d41",
+    fontSize: 18
   },
   price: {
     fontWeight: "bold",
-    color: "#f50d41"
-
+    color: "#f50d41",
+    fontSize: 18,
   }
 })
 
