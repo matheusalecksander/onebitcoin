@@ -1,6 +1,8 @@
 import React from 'react'
 import { StyleSheet, StatusBar, SafeAreaView,Platform } from 'react-native'
 import CurrentPrice from "./src/Components/CurrentPrice/"
+import HistoryGraphic from './src/Components/HistoryGraphic';
+import QuotationList from './src/Components/QuotationList/'
 
 export default function App() {
   return (
@@ -9,7 +11,9 @@ export default function App() {
         backgroundColor="#f50d41"
         barStyle="dark-content"
       />
-      <CurrentPrice/>      
+      <CurrentPrice/>
+      <HistoryGraphic/>
+      <QuotationList/>
     </SafeAreaView>
   );
 }
