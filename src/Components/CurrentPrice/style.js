@@ -4,12 +4,14 @@ const styles = StyleSheet.create({
   headerPrice: {
     width: "100%",
     height: "auto",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: 20,
   },
   textPrice: {
     color: "#c4c4c4",
     fontSize: 18,
-    paddingTop: 30
+    fontWeight: "bold",
+    paddingTop: 20,
   },
   currentPrice: {
     color: "#f50d41",

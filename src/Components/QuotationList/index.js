@@ -51,11 +51,6 @@ export default function QuotationList(){
           </Text>
         </TouchableOpacity>
       </View>
-
-
-      <ScrollView>
-
-      </ScrollView>
     </>
   )
 }

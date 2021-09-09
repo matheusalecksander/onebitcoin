@@ -3,18 +3,18 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   buttonsContainer: {
     width: "100%",
-    marginTop: 20,
-    borderRadius: 10,
     flexDirection: 'row',
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingVertical: 15
   },
   buttonQuery: {
-    paddingVertical: 10,
     width: 70,
+    height: 50,
     borderBottomColor: "#f50d41",
     borderBottomWidth: 2,
     borderRadius: 10,
-    alignItems: 'center'
+    alignItems: "center",
+    justifyContent: "center",
   },
   textButton: {
     color: "#f50d41",
