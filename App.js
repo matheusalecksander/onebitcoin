@@ -3,7 +3,6 @@ import { StyleSheet, StatusBar, SafeAreaView,Platform } from 'react-native'
 import CurrentPrice from "./src/Components/CurrentPrice/"
 import HistoryGraphic from './src/Components/HistoryGraphic';
 import QuotationList from './src/Components/QuotationList/'
-import QuotationItems from './src/Components/QuotationList/QuotationItem';
 
 
 function addZero(number){
@@ -22,25 +21,25 @@ function url(qtdDays) {
   pelo usuário ao clicar nos botões de período */
   const date = new Date()
   const listLastDays = qtdDays
-  const endDate = `${date.getFullYear}-${addZero(date.getMonth()+ 1)}-${addZero(date.getDate())}`
+  const end_date = `${date.getFullYear()}-${addZero(date.getMonth()+ 1)}-${addZero(date.getDate())}`
   
   date.setDate(date.getDate() - listLastDays)
 
-  const startDate = `${date.getFullYear}-${addZero(date.getMonth()+ 1)}-${addZero(date.getDate())}`
+  const start_date = `${date.getFullYear()}-${addZero(date.getMonth()+ 1)}-${addZero(date.getDate())}`
 
-  return `https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`
+  return `https://api.coindesk.com/v1/bpi/historical/close.json?start=${start_date}&end=${end_date}`
 }
 
 async function getListCoins(url) {
   /* Função para chamada da API */
   let response = await fetch(url)
-  let returnApi = response.json()
+  let returnApi = await response.json()
   let selectListQuotations = returnApi.bpi // Aqui selecionamos apenas a chave bpi do JSON retornado pela API
   const queryCoinsList = Object.keys(selectListQuotations).map((key) => {
     /* Aqui fazemos um map nos dados e tratamos o formato da data para ficar padrão com o nosso */
     return {
-      date : key.split("-").reverse().join("/"),
-      value: selectListQuotations[key]
+      data: key.split("-").reverse().join("/"),
+      valor: selectListQuotations[key]
     }
   })
 
@@ -52,11 +51,11 @@ async function getListCoins(url) {
 async function getPriceCoinsGraphic(url) {
   /* Função para chamada da API */
   let responseG = await fetch(url)
-  let returnApiG = responseG.json()
+  let returnApiG = await responseG.json()
   let selectListQuotationsG = returnApiG.bpi // Aqui selecionamos apenas a chave bpi do JSON retornado pela API
   const queryCoinsListG = Object.keys(selectListQuotationsG).map((key) => {
     /* Aqui fazemos um map nos dados e pegamos apenas o valor para inserir no gráfico */
-     selectListQuotationsG[key]
+     return selectListQuotationsG[key]
     }
   )
 
@@ -98,9 +97,12 @@ export default function App() {
         barStyle="dark-content"
       />
       <CurrentPrice/>
-      <HistoryGraphic/>
-      <QuotationList/>
-      <QuotationItems/>
+      <HistoryGraphic
+        infoDataGraphic={coinsGrapichList}
+      />
+      <QuotationList
+        filterDay={updateDay}
+        listTransactions={coinsList}/>
     </SafeAreaView>
   );
 }

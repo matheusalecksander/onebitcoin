@@ -6,7 +6,7 @@ import { View,
 
 import styles from "./style"
 
-export default function QuotationItems(){
+export default function QuotationItems(props){
   return(
     <View style={styles.mainContainer}>
       <View style={styles.leftContent}>
@@ -14,12 +14,14 @@ export default function QuotationItems(){
           <Image
           source={require("../../../assets/Bitcoin-Emblem.png")}
           style={styles.bitcoinLogo}/>
-          <Text style={styles.dayQuotation}>09/09/2021</Text>
+          <Text style={styles.dayQuotation}>
+            {props.data}
+          </Text>
         </View>
       </View>
       <View style={styles.rightContent}>
         <Text style={styles.price}>
-          $53331.052
+          ${props.valor}
         </Text>
       </View>
     </View>
